@@ -16,43 +16,4 @@ XML vers EXCEL:
 	
 ***NOTE:***
 
--Je me fais chier avec leur API, puisqu'il y a une limite à la taille du download que je peux faire en une fois (en plus d'une limite sur le nombre de versions maximal d'un article. Je dois donc recomposer un fichier au complet à partir de ces quelques téléchargement. J'utilise ces commandes afin de le faire:
-
-Afin de télécharger initialement un article:
-
-curl -d "" 'http://en.wikipedia.org/w/index.php?title=Special:Export&pages=ARTICLE_NAME&offset=1&limit=1000&rvprop=ids%7Ctimestamp%7Cuser%7Csize%7Csha1%7Ccomment%7Ccontent&action=submit' > ARTICLE_NAME 1.xml
-
-Afin de télécharger la suite:
-
-curl -d "" 'http://en.wikipedia.org/w/index.php?title=Special:Export&pages=ARTICLE_NAME&offset=TIMESTAMP&limit=1000&rvprop=ids%7Ctimestamp%7Cuser%7Csize%7Csha1%7Ccomment%7Ccontent&action=submit' > ARTICLE_NAMEX.xml
-
-Ensuite, j'utilise les commande BASH suivantes:
-
-POUR Supprimer l'entête (juste pour le premier):
-	sed  -i '1,39d' ARTICLE_NAME.xml
-POUR Supprimer les deux dernières lignes (juste pour le dernier):
-	sed -i 'N;$!P;$!D;$d' ARTICLE_NAME.xml
-
-EXEMPLE:
-
-sed 'N;$!P;$!D;$d' Common_cold1.xml > Common_cold_ALL.xml 
-
-sed '1,39d' Common_cold2.xml > Co_temp.xml 
-
-sed 'N;$!P;$!D;$d' Co_temp.xml >> Common_cold_ALL.xml 
-
-sed '1,39d' Common_cold3.xml > Co_temp.xml 
-
-sed 'N;$!P;$!D;$d' Co_temp.xml >> Common_cold_ALL.xml 
-
-sed '1,39d' Common_cold4.xml > Co_temp.xml 
-
-sed 'N;$!P;$!D;$d' Co_temp.xml >> Common_cold_ALL.xml 
-
-
-sed '1,39d' Common_cold5.xml >> Common_cold_ALL.xml 
-
-Append:
-	cat ARTICLE_NAMEX.xml >> ARTICLE_NAME_ALL.xml
-	
-	
+-Je me fais chier avec leur API, puisqu'il y a une limite à la taille du download que je peux faire en une fois (en plus d'une limite sur le nombre de versions maximal d'un article. Je dois donc recomposer un fichier au complet à partir de ces quelques téléchargement. VOIR le fichier nommé: Download_dump
