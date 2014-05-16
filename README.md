@@ -36,12 +36,20 @@ POUR Supprimer les deux dernières lignes (juste pour le dernier):
 EXEMPLE:
 
 sed 'N;$!P;$!D;$d' Common_cold1.xml > Common_cold_ALL.xml 
+
 sed '1,39d' Common_cold2.xml > Co_temp.xml 
+
 sed 'N;$!P;$!D;$d' Co_temp.xml >> Common_cold_ALL.xml 
+
 sed '1,39d' Common_cold3.xml > Co_temp.xml 
+
 sed 'N;$!P;$!D;$d' Co_temp.xml >> Common_cold_ALL.xml 
+
 sed '1,39d' Common_cold4.xml > Co_temp.xml 
+
 sed 'N;$!P;$!D;$d' Co_temp.xml >> Common_cold_ALL.xml 
+
+
 sed '1,39d' Common_cold5.xml >> Common_cold_ALL.xml 
 
 Append:
